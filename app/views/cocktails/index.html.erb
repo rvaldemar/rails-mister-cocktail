@@ -1,12 +1,12 @@
 <h1>Here is your cocktail list</h1>
+<%=link_to "Cocktail creation station", new_cocktail_path %>
 <div>
-  <%@cocktails.each do |cocktail| %>
-  <h2> <%= cocktail.name %> </h2>
+  <% @cocktails.each do |cocktail| %>
+  <h2> <%= link_to cocktail.name, cocktail_path(cocktail) %> </h2>
   <ul>
-    <% @cocktail.ingredients.each do |ingredient| %>
+    <% cocktail.ingredients.each do |ingredient| %>
     <li> <%= ingredient.name %> </li>
     <% end %>
   </ul>
   <% end %>
 </div>
-

@@ -1,2 +1,14 @@
-<h1>Cocktails#show</h1>
-<p>Find me in app/views/cocktails/show.html.erb</p>
+<h1> <%= @cocktail.name.capitalize %> </h1>
+  <ul>
+    <% @cocktail.ingredients.each do |ingredient| %>
+    <li> <%= "#{ingredient.name} (#{Dose.find_by(cocktail_id: @cocktail.id, ingredient_id: ingredient.id).description})" %> </li>
+    <%= link_to "x", dose_path(Dose.find_by(cocktail_id: @cocktail.id, ingredient_id: ingredient.id)), method: :delete %>
+    <% end %>
+  </ul>
+
+
+  <%= link_to "Add scrumptious ingredients", new_cocktail_dose_path(@cocktail) %>
+  <br>
+  <br>
+  <%= link_to "Back to cocktail inventory", cocktails_path %>
+
