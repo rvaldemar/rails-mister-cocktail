@@ -4,6 +4,7 @@
     <li> <%= "#{ingredient.name} (#{Dose.find_by(cocktail_id: @cocktail.id, ingredient_id: ingredient.id).description})" %> </li>
     <%= link_to "x", dose_path(Dose.find_by(cocktail_id: @cocktail.id, ingredient_id: ingredient.id)), method: :delete %>
     <% end %>
+    <%= cl_image_tag @cocktail.photo, height: 300, width: 400, crop: :fill %>
   </ul>
 
 
