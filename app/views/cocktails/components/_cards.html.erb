@@ -1,0 +1,24 @@
+
+<%
+if cocktail.photo_true
+  url = cl_image_path(cocktail.photo)
+else
+  url = cl_image_path('pexels-photo-1267360')
+end
+%>
+
+
+<div class="col-xs-12 col-sm-4">
+  <div class="card round" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cl_image_path(url) %>);">
+
+
+    <div class="card-category">
+      <p> <%= cocktail.name %> </p>
+    </div>
+
+
+    <a class="card-link" href="<%= cocktail_path(cocktail) %>" ></a>
+
+    <a href="<%= cocktail_path(cocktail)%>", data-method="delete", style='color: red;'><i style="height: 12px;", class="fas fa-times card-delete"></i></a>
+  </div>
+</div>

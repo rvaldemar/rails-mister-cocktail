@@ -3,8 +3,7 @@
 <div class="container">
 
   <div class="box">
-    <% unless @cocktails.empty? %>
-    <h1>Here is your cocktail list:</h1>
+    <h1>Cocktails for inspiration:</h1>
     <div class="row">
 
         <% @cocktails.each do |cocktail| %>
@@ -13,9 +12,6 @@
 
     </div>
 
-    <% else %>
-      <h1>Create your first cocktail !</h1>
-    <% end %>
     <div class="btn-div" id="btn-show-top">
       <%= link_to "The Inspiration Hub!", cocktails_path %>
     </div>

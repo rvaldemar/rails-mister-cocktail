@@ -2,7 +2,9 @@ Rails.application.routes.draw do
 
   root to: 'cocktails#index'
 
-  resources :cocktails, only: [:index, :show, :new, :create] do
+  get "/inspiration-hub", to: 'cocktails#random', as: 'hub'
+
+  resources :cocktails, only: [:index, :show, :new, :create, :destroy] do
     resources :doses, only: [:new, :create]
 
   end
