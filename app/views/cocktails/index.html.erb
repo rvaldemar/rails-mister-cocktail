@@ -3,7 +3,7 @@
 <div class="container">
 
   <div class="box">
-    <% unless @cocktails.empty? %>
+    <% if !@cocktails.select{|cocktail| !cocktail.rnd_photo_link}.empty? %>
     <h1>Here is your cocktail list:</h1>
     <div class="row">
 
