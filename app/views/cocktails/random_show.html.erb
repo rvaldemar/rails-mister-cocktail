@@ -1,0 +1,35 @@
+
+
+<div class="container">
+  <div class="box show">
+
+    <h1> <%= @cocktail.name.capitalize %> </h1>
+    <div class="row show-content">
+      <div>
+      <%= cl_image_tag @cocktail.rnd_photo_link, class: 'show-img ol-xs-12 col-sm-6', height: 300, width: 400, crop: :fill %>
+      </div>
+      <div class="ingredients">
+        <% if @cocktail.ingredients.empty? %>
+            <h2>Tell us your secret... </h2>
+        <% else %>
+          <ul>
+            <li>
+              <h2>This is the secret:</h2>
+            </li>
+            <% @cocktail.ingredients.each do |ingredient| %>
+                <li> <%= "#{ingredient.name}: #{Dose.find_by(ingredient_id: ingredient.id, cocktail_id: @cocktail.id).description}" %> </li>
+            <%end%>
+          </ul>
+        <% end %>
+      </div>
+    </div>
+    <div class="row " >
+        <div class="btn-div" id="btn-show-top">
+          <%= link_to "Back to cocktail inventory", cocktails_path %>
+        </div>
+        <div class="btn-div" id="btn-show-bottom">
+          <%= link_to "Add scrumptious ingredients", new_cocktail_dose_path(@cocktail) %>
+        </div>
+    </div>
+  </div>
+</div>

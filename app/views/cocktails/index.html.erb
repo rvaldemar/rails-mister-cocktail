@@ -8,7 +8,9 @@
     <div class="row">
 
         <% @cocktails.each do |cocktail| %>
-          <%= render 'cocktails/components/cards', cocktail: cocktail %>
+          <% if !cocktail.rnd_photo_link %>
+            <%= render 'cocktails/components/cards', cocktail: cocktail %>
+          <% end %>
         <% end %>
 
     </div>
@@ -17,7 +19,7 @@
       <h1>Create your first cocktail !</h1>
     <% end %>
     <div class="btn-div" id="btn-show-top">
-      <%= link_to "The Inspiration Hub!", cocktails_path %>
+      <%= link_to "The Inspiration Hub!", hub_path %>
     </div>
     <div class="btn-div">
       <%=link_to raw("Cocktail Creation Station <i class='fas fa-rocket'></i>"), new_cocktail_path %>
